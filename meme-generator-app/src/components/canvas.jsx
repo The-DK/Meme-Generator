@@ -12,12 +12,12 @@ class Canvas extends Component {
     const canvas = this.refs.canvas;
     if (canvas) {
       const context = canvas.getContext("2d");
+      // Clear the canvas
       context.clearRect(0, 0, canvas.width, canvas.height);
       var img = this.refs.memeImg;
       const { imageURL } = this.props.data;
 
       if (imageURL !== "") {
-        console.log(img);
         var hRatio = canvas.width / img.width;
         var vRatio = canvas.height / img.height;
         var ratio = Math.min(hRatio, vRatio);
@@ -70,6 +70,14 @@ class Canvas extends Component {
           style={{ display: "none" }}
           onLoad={this.renderImage}
         />
+        <a
+          href="#"
+          onClick={(e) =>
+            this.props.handleDownloadImage(e, this.refs.canvas.toDataURL())
+          }
+        >
+          Download
+        </a>
         {this.renderImage()}
       </div>
     );
