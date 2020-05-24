@@ -42,6 +42,7 @@ class Canvas extends Component {
         canvas.width / 5,
         canvas.height / 10
       );
+      context.font = "20pt Calibri";
       //   Bottom Text
       context.fillText(
         this.props.data.bottomText,
@@ -62,7 +63,6 @@ class Canvas extends Component {
           width="500"
           height="500"
         ></canvas>
-
         <img
           ref="memeImg"
           src={this.props.data.imageURL}
@@ -70,8 +70,11 @@ class Canvas extends Component {
           style={{ display: "none" }}
           onLoad={this.renderImage}
         />
+        <br />
         <a
+          style={{ textAlign: "right" }}
           href="#"
+          className="btn btn-primary"
           onClick={(e) =>
             this.props.handleDownloadImage(e, this.refs.canvas.toDataURL())
           }

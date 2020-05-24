@@ -18,6 +18,7 @@ class App extends Component {
   appStyle = {
     display: "flex",
     flexDirection: "row",
+    marginLeft: "10%",
   };
 
   handleImageChange = (e) => {
@@ -49,7 +50,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Meme Generator</h1>
+        <h1 id="header">Meme Generator</h1>
         <div style={this.appStyle}>
           <Canvas
             data={this.state}
